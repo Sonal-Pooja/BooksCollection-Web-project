@@ -1,0 +1,52 @@
+<!-- Step 10 -->
+<h3>Books without author:-</h3>
+<table border="1">
+    <tr><th>ISBN</th><th>Img</th><th>Title</th><th>Author</th><th>Inventory</th><th>Category</th></tr>
+    {{#each book}}          
+        {{#if this.inventory includeZero=false}}
+            <tr>
+                <td>{{this.ISBN}}</td>
+                <td><img src="{{this.img}}" width="20" height="20"/></td>
+                <td>{{this.title}}</td>
+               <td>{{#noauthor this.author }}{{/noauthor}}</td>
+                <td>{{this.inventory}}</td>
+                <td>{{this.category}}</td>
+            </tr>
+        {{else}}
+            <tr  style="background-color:yellow">
+                <td>{{this.ISBN}}</td>
+                <td><img src="{{this.img}}" width="20" height="20"/></td>
+                <td>{{this.title}}</td>
+                <td>{{#noauthor this.author }}{{/noauthor}}</td>
+                <td>{{#convert this.inventory }}{{/convert}}</td>
+                <td>{{this.category}}</td>
+            </tr>
+        {{/if}}               
+    {{/each}}
+</table>
+
+<h3>All Books:-</h3>
+<table border="1">
+    <tr><th>ISBN</th><th>Img</th><th>Title</th><th>Author</th><th>Inventory</th><th>Category</th></tr>
+    {{#each book}}          
+        {{#if this.inventory includeZero=false}}
+            <tr>
+                <td>{{this.ISBN}}</td>
+                <td><img src="{{this.img}}" width="20" height="20"/></td>
+                <td>{{this.title}}</td>
+                <td>{{this.author}}</td>
+                <td>{{this.inventory}}</td>
+                <td>{{this.category}}</td>
+            </tr>
+        {{else}}
+            <tr  style="background-color:yellow">
+                <td>{{this.ISBN}}</td>
+                <td><img src="{{this.img}}" width="20" height="20"/></td>
+                <td>{{this.title}}</td>
+                <td>{{this.author}}</td>
+                <td>{{this.inventory }}</td>
+                <td>{{this.category}}</td>
+            </tr>
+        {{/if}}               
+    {{/each}}
+</table>

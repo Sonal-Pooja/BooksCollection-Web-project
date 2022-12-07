@@ -1,0 +1,18 @@
+<!-- Step 8-->
+<h4>Total books:- {{book.length}}</h4>
+<h4>Books with non-zero inventory:-</h4>
+<table border="1">
+    <tr><th>ISBN</th><th>Img</th><th>Title</th><th>Author</th><th>Inventory</th><th>Category</th></tr>
+    {{#each book}}
+        {{#if this.inventory includeZero=false}}
+            <tr>
+                <td>{{this.ISBN}}</td>
+                <td><img src="{{this.img}}" width="20" height="20"/></td>
+                <td>{{this.title}}</td>
+                <td>{{this.author}}</td>
+                <td>{{this.inventory}}</td>
+                <td>{{this.category}}</td>
+            </tr>
+        {{/if}}
+    {{/each}}
+</table>
